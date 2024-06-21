@@ -43,6 +43,8 @@ Create a new class in the `components_base_path` (defaults to `app/api_component
 A basic example of a component:
 
 ```ruby
+require "rswag/schema_components/component"
+
 class ExampleComponent
   include Rswag::SchemaComponents::Component
 
