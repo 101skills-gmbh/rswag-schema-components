@@ -1,4 +1,4 @@
-# Rswag::SchemaUtils
+# Rswag::SchemaComponents
 Short description and motivation.
 
 ## Usage
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "rswag-schema_utils"
+gem "rswag-schema_components"
 ```
 
 And then execute:
@@ -18,7 +18,17 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install rswag-schema_utils
+$ gem install rswag-schema_components
+```
+
+To use a different components folder just add an initializer called "rswag_schema_components.rb" and paste in the following to add your custom global classes:
+
+```
+# encoding: utf-8
+
+Rswag::SchemaComponents.setup do |config|
+  config.components_base_path = "api/components"
+end
 ```
 
 ## Contributing

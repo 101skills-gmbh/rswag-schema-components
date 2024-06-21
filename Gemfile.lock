@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rswag-schema_utils (0.1.0)
+    rswag-schema_components (0.1.0)
       rails (>= 7.1.3.4)
 
 GEM
@@ -218,7 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   puma
-  rswag-schema_utils!
+  rswag-schema_components!
   sqlite3
 
 BUNDLED WITH

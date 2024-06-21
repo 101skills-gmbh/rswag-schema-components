@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Rswag
-  module SchemaUtils
-    class ComponentsLoader
+  module SchemaComponents
+    class Loader
       attr_accessor :identifier, :type
 
       VALID_TYPES = %w[
@@ -65,7 +65,7 @@ module Rswag
       end
 
       private def base_path
-        @base_path ||= Rails.root.join("app/api_components")
+        @base_path ||= Rails.root.join(Rswag::SchemaUtils.components_base_path)
       end
     end
   end

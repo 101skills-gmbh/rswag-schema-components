@@ -1,5 +1,5 @@
 module Rswag
-  module SchemaUtils
+  module SchemaComponents
     class Railtie < ::Rails::Railtie
     end
   end
