@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Rswag
   module SchemaComponents
     class Loader
@@ -8,7 +9,7 @@ module Rswag
         schemas parameters securitySchemes requestBodies responses headers examples links callbacks
       ].freeze
 
-      def initialize(identifier)
+      def initialize(identifier = nil)
         @identifier = identifier
       end
 
@@ -29,7 +30,7 @@ module Rswag
           definition = klass.new.to_schema
 
           if components[component_name].present?
-            raise "Duplicate component name \"#{component_name}\" found in \"#{identifier}/#{type}\""
+            raise "Duplicate component name \"#{component_name}\" found in \"#{definitions_path}\""
           end
 
           components[component_name] = definition.merge(title: component_name)
@@ -61,7 +62,10 @@ module Rswag
       end
 
       private def definitions_path
-        "#{identifier}/#{type}"
+        [
+          identifier,
+          type
+        ].compact.join("/")
       end
 
       private def base_path
