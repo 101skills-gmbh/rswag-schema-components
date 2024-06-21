@@ -69,7 +69,7 @@ module Rswag
       end
 
       private def base_path
-        @base_path ||= Rails.root.join(Rswag::SchemaUtils.components_base_path)
+        @base_path ||= Rails.root.join(Rswag::SchemaComponents.components_base_path)
       end
     end
   end
