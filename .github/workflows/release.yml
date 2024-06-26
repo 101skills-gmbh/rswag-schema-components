@@ -13,5 +13,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Relase Gem to Rubygems
-        run: gem release
+      - name: Build Gem
+        run: gem build
+      - name: Release Gem to Rubygems
+        run: gem push *.gem
