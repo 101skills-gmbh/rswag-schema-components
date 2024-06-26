@@ -9,4 +9,5 @@
 /test/dummy/storage/
 /test/dummy/tmp/
 
-/Gemfile.lock
+*.gem
+Gemfile.lock

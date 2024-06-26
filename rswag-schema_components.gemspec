@@ -7,11 +7,10 @@ Gem::Specification.new do |spec|
   spec.email = ["marten@fobizz.com"]
   spec.homepage = "https://github.com/101skills-gmbh/rswag-schema-components"
   spec.summary = "Schema Components for Rswag."
-  spec.description = "Schema Components for Rswag."
+  spec.description = "Schema Components for the rswag gem to define reusable schema components."
   spec.license = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/101skills-gmbh/rswag-schema-components"
   spec.metadata["changelog_uri"] = "https://github.com/101skills-gmbh/rswag-schema-components/blob/main/CHANGELOG.md"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
@@ -21,4 +20,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rails", ">= 3.0.0", "< 8.0.0"
+
+  spec.required_ruby_version = '>= 2.7.0'
 end
