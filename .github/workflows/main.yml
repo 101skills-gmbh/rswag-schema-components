@@ -1,0 +1,26 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+jobs:
+  ruby-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+  ruby-lint:
+    needs: ruby-setup
+    uses: ./.github/workflows/ruby-lint.job.yml
+
+  ruby-tests:
+    needs: ruby-setup
+    uses: ./.github/workflows/ruby-tests.job.yml
