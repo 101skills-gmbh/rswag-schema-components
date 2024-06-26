@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
-class Rswag::SchemaComponentsTest < ActiveSupport::TestCase
-  test "it has a version number" do
-    assert Rswag::SchemaComponents::VERSION
-  end
+class Rswag::SchemaComponents < ActiveSupport::TestCase
+   test "Rswag::SchemaComponents is a module" do
+     assert_kind_of Module, Rswag::SchemaComponents
+   end
 end

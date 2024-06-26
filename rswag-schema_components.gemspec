@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name        = "rswag-schema_components"
   spec.version     = Rswag::SchemaComponents::VERSION
   spec.authors     = ["Marten Klitzke"]
-  spec.email       = ["marten@klitzke.xyz"]
+  spec.email       = ["marten@fobizz.com"]
   spec.homepage    = "https://github.com/101skills-gmbh/rswag-schema-components"
   spec.summary     = "Schema Components for Rswag."
   spec.description = "Schema Components for Rswag."
