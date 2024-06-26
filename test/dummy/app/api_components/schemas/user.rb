@@ -5,10 +5,10 @@ module Schemas
     schema({
       type: :object,
       properties: {
-        id: { type: :integer },
+        id: {type: :integer}
       },
       additionalProperties: false,
-      required: %w[id],
+      required: %w[id]
     })
   end
 end

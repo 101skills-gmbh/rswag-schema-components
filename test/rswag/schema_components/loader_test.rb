@@ -9,13 +9,13 @@ class Rswag::SchemaComponents::LoaderTest < ActiveSupport::TestCase
     assert_equal(
       components_loader.schemas["User"],
       {
-        :type=>:object,
-        :properties=>{
-          :id=>{:type=>:integer}
+        type: :object,
+        properties: {
+          id: {type: :integer}
         },
-        :additionalProperties=>false,
-        :required=>["id"],
-        :title=>"User"
+        additionalProperties: false,
+        required: ["id"],
+        title: "User"
       }
     )
   end
