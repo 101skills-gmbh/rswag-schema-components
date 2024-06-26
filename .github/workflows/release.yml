@@ -8,16 +8,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write
+      contents: write
+
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Build Gem
-        run: gem build
-      - uses: fac/ruby-gem-setup-credentials-action@v2
-        with:
-          token: ${{ secrets.RUBYGEMS_API_KEY }}
-      - uses: fac/ruby-gem-push-action@v2
-        with:
-          key: github
+      - uses: rubygems/release-gem@v1
