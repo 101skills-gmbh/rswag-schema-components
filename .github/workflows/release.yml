@@ -18,3 +18,5 @@ jobs:
         with:
           bundler-cache: true
       - uses: rubygems/release-gem@v1
+        with:
+          await-release: false
