@@ -24,3 +24,7 @@ jobs:
   ruby-tests:
     needs: ruby-setup
     uses: ./.github/workflows/ruby-tests.job.yml
+
+  ruby-build:
+    needs: ruby-setup
+    uses: ./.github/workflows/ruby-build.job.yml
