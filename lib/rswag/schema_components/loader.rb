@@ -27,16 +27,27 @@ module Rswag
         load_classes.each do |klass|
           component_name = extract_component_name(klass)
 
-          definition = klass.new.to_schema
+          component = klass.new
+          definition = component.to_schema
+
+          if component.hidden?
+            next
+          end
 
           if components[component_name].present?
             raise "Duplicate component name \"#{component_name}\" found in \"#{definitions_path}\""
           end
 
-          components[component_name] = definition.merge(title: component_name)
+          definition = definition.merge(title: component_name) if type_allows_title?
+
+          components[component_name] = definition
         end
 
         components
+      end
+
+      private def type_allows_title?
+        type == "schemas"
       end
 
       private def load_classes
