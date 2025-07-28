@@ -5,7 +5,10 @@ module Schemas
     schema({
       type: :object,
       properties: {
-        id: {type: :integer}
+        id: {type: :integer},
+        name: {type: :string, nullable: true},
+        created_at: {type: :string, format: "date-time"},
+        updated_at: {type: :string, format: "date-time"}
       },
       additionalProperties: false,
       required: %w[id]

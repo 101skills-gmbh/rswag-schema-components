@@ -11,7 +11,10 @@ class Rswag::SchemaComponents::LoaderTest < ActiveSupport::TestCase
       {
         type: :object,
         properties: {
-          id: {type: :integer}
+          id: {type: :integer},
+          name: {type: :string, nullable: true},
+          createdAt: {type: :string, format: "date-time"},
+          updatedAt: {type: :string, format: "date-time"}
         },
         additionalProperties: false,
         required: ["id"],
