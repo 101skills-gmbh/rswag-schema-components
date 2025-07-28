@@ -40,7 +40,7 @@ module Rswag
 
           definition = definition.merge(title: component_name) if type_allows_title?
 
-          components[component_name] = definition.deep_transform_keys { |key| key.camelize(:lower) }
+          components[component_name] = definition.deep_transform_keys { |key| key.to_s.camelize(:lower).to_sym }
         end
 
         components
