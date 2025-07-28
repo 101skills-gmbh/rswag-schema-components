@@ -14,7 +14,7 @@ module Rswag
       end
 
       VALID_TYPES.each do |type|
-        define_method(type) do
+        define_method(type.underscore) do
           @type = type
 
           load_components
@@ -75,7 +75,7 @@ module Rswag
       private def definitions_path
         [
           identifier,
-          type
+          type.underscore
         ].compact.join("/")
       end
 
