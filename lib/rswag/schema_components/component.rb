@@ -7,7 +7,7 @@ module Rswag
 
       included do
         class << self
-          attr_accessor :schema_value, :schema_hidden_value
+          attr_accessor :schema_value, :schema_hidden_value, :skip_key_transformation_value
 
           def schema(schema_definition)
             self.schema_value = if superclass.respond_to?(:schema_value)
@@ -21,6 +21,10 @@ module Rswag
           def schema_hidden(flag = false)
             self.schema_hidden_value = flag
           end
+
+          def skip_key_transformation(flag = false)
+            self.skip_key_transformation_value = flag
+          end
         end
 
         def to_schema
@@ -29,6 +33,10 @@ module Rswag
 
         def hidden?
           self.class.schema_hidden_value
+        end
+
+        def skip_key_transformation?
+          self.class.skip_key_transformation_value
         end
       end
     end
