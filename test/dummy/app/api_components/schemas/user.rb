@@ -8,7 +8,8 @@ module Schemas
         id: {type: :integer},
         name: {type: :string, nullable: true},
         created_at: {type: :string, format: "date-time"},
-        updated_at: {type: :string, format: "date-time"}
+        updated_at: {type: :string, format: "date-time"},
+        _destroy: {type: :boolean, default: false}
       },
       additionalProperties: false,
       required: %w[id]
