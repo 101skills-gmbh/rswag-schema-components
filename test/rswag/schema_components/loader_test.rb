@@ -15,7 +15,7 @@ class Rswag::SchemaComponents::LoaderTest < ActiveSupport::TestCase
           name: {type: :string, nullable: true},
           createdAt: {type: :string, format: "date-time"},
           updatedAt: {type: :string, format: "date-time"},
-          _destroy: {type: :boolean, default: false},
+          _destroy: {type: :boolean, default: false}
         },
         additionalProperties: false,
         required: ["id"],

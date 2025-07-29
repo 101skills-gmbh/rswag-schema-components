@@ -43,7 +43,7 @@ module Rswag
           components[component_name] = definition.deep_transform_keys do |key|
             prefix = key.to_s.start_with?("_") ? "_" : ""
 
-            "#{prefix}#{key.to_s.delete_prefix("_").camelize(:lower)}".to_sym
+            :"#{prefix}#{key.to_s.delete_prefix("_").camelize(:lower)}"
           end
         end
 
