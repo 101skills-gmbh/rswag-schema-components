@@ -50,11 +50,17 @@ module Rswag
         components
       end
 
-      private def transform_value
+      private def transform_value(symbolize: true)
         lambda do |value|
           prefix = value.to_s.start_with?("_") ? "_" : ""
 
-          :"#{prefix}#{value.to_s.delete_prefix("_").camelize(:lower)}"
+          new_value = "#{prefix}#{value.to_s.delete_prefix("_").camelize(:lower)}"
+
+          if symbolize
+            new_value = new_value.to_sym
+          end
+
+          new_value
         end
       end
 
@@ -62,8 +68,8 @@ module Rswag
         transformed_definition = definition.deep_transform_keys(&transform_value)
 
         transform_required = proc do |key, value|
-          if key == "required"
-            value.map! { |v| transform_value.call(v) }
+          if key.to_s == "required"
+            value.map! { |v| transform_value(symbolize: false).call(v) }
           else
             value
           end

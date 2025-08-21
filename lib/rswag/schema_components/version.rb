@@ -1,5 +1,5 @@
 module Rswag
   module SchemaComponents
-    VERSION = "0.5.0"
+    VERSION = "0.5.1"
   end
 end
