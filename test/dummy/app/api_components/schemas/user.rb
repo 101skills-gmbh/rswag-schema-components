@@ -12,7 +12,7 @@ module Schemas
         _destroy: {type: :boolean, default: false}
       },
       additionalProperties: false,
-      required: %w[id]
+      required: %w[id created_at updated_at]
     })
   end
 end

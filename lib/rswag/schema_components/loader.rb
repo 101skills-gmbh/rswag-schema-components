@@ -40,18 +40,36 @@ module Rswag
 
           definition = definition.merge(title: component_name) if type_allows_title?
 
-          components[component_name] = if component.skip_key_transformation?
+          components[component_name] = if component.skip_key_transformation? || !Rswag::SchemaComponents.camelize_keys
             definition
           else
-            definition.deep_transform_keys do |key|
-              prefix = key.to_s.start_with?("_") ? "_" : ""
-
-              :"#{prefix}#{key.to_s.delete_prefix("_").camelize(:lower)}"
-            end
+            transform_keys(definition)
           end
         end
 
         components
+      end
+
+      private def transform_value
+        lambda do |value|
+          prefix = value.to_s.start_with?("_") ? "_" : ""
+
+          :"#{prefix}#{value.to_s.delete_prefix("_").camelize(:lower)}"
+        end
+      end
+
+      private def transform_keys(definition)
+        transformed_definition = definition.deep_transform_keys(&transform_value)
+
+        transform_required = proc do |key, value|
+          if key == "required"
+            value.map! { |v| transform_value.call(v) }
+          else
+            value
+          end
+        end
+
+        transformed_definition.deep_merge!(transformed_definition, &transform_required)
       end
 
       private def type_allows_title?

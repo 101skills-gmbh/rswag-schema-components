@@ -18,7 +18,7 @@ class Rswag::SchemaComponents::LoaderTest < ActiveSupport::TestCase
           _destroy: {type: :boolean, default: false}
         },
         additionalProperties: false,
-        required: ["id"],
+        required: ["id", "createdAt", "updatedAt"],
         title: "User"
       }
     )

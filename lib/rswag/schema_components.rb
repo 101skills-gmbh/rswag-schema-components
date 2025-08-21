@@ -8,6 +8,9 @@ module Rswag
     mattr_accessor :components_base_path
     @@components_base_path = "app/api_components"
 
+    mattr_accessor :camelize_keys
+    @@camelize_keys = false
+
     def self.setup
       yield self
     end
