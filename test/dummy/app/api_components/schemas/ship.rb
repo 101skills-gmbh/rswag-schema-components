@@ -1,5 +1,5 @@
 module Schemas
-  class User
+  class Ship
     include Rswag::SchemaComponents::Component
 
     schema({
@@ -7,6 +7,7 @@ module Schemas
       properties: {
         id: {type: :integer},
         name: {type: :string, nullable: true},
+        type: {"$ref": "#/components/schemas/ShipTypeEnum"},
         created_at: {type: :string, format: "date-time"},
         updated_at: {type: :string, format: "date-time"},
         _destroy: {type: :boolean, default: false}

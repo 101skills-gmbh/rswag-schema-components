@@ -22,5 +22,10 @@ class Rswag::SchemaComponents::LoaderTest < ActiveSupport::TestCase
         title: "User"
       }
     )
+
+    assert_equal(
+      components_loader.schemas.keys,
+      [:Ship, :ShipTypeEnum, :User]
+    )
   end
 end

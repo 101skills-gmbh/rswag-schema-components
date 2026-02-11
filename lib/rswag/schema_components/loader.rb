@@ -47,7 +47,7 @@ module Rswag
           end
         end
 
-        components.symbolize_keys
+        components.symbolize_keys.sort.to_h
       end
 
       private def transform_value(symbolize: true)
